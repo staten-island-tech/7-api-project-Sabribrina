@@ -8,15 +8,13 @@ def getChara(sobsob):
         return None
     
     data = response.json()
-    print(data)
+    return data
 
 chara = getChara("291")
 
-for key, value in chara.items():
-    print(key, "→", value)
+result = {}
+for charas in chara:
+    result.update(charas)
 
-""" chara = {
-    "name": "Aqua",
-    "url": "https://static.wikia.nocookie.net/disney/images/0/0a/Aqua_KHIII.png",
-}
-print(chara["name"]) """
+print(result)
+print(result['name'])
