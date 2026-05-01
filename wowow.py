@@ -1,4 +1,4 @@
-import requests
+""" import requests
 import json
 
 def getChara(sobsob):
@@ -8,13 +8,27 @@ def getChara(sobsob):
         return None
     
     data = response.json()
-    return data
+    print(data)
 
-chara = getChara("291")
+chara = getChara("291") """
 
-result = {}
-for charas in chara:
-    result.update(charas)
+import requests
+import json
 
-print(result)
-print(result['name'])
+my_list = []
+def getChara(sobsob):
+    response = requests.get(f"https://api.disneyapi.dev/character/{sobsob.lower()}")
+    if response.status_code != 200:
+        print("Error fetching data!")
+        return None
+    
+    data = response.json()
+    print(data)
+
+import json
+ask = input("what info do u want?? (type id numb)")
+chara = getChara(ask)
+my_list.append(getChara(ask))
+print(my_list)
+askk = input("what specific data? ex: name...")
+print(my_list.index(askk))
