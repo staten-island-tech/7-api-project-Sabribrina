@@ -30,12 +30,15 @@ def getChara():
     else: 
         data = response.json()
         print(data)
-        responsename.config(text = f"name = {data['data']['name']}")
-        shortfilms.config(text = f"shortfilms = {data['data']['shortfilms']}")
-        tvshows.config(text = f"tvshows = {data['data']['tvshows']}")
-        allies.config(text = f"allies = {data['data']['allies']}")
-        enemies.config(text = f"enemies = {data['data']['enemies']}")
-        videogames.config(text = f"videogame = {data['data']['videogame']}")
+        try:
+            responsename.config(text = f"name = {data['data']['name']}")
+            shortfilms.config(text = f"shortfilms = {data['data']['shortFilms']}")
+            tvshows.config(text = f"tvshows = {data['data']['tvShows']}")
+            allies.config(text = f"allies = {data['data']['allies']}")
+            enemies.config(text = f"enemies = {data['data']['enemies']}")
+            videogames.config(text = f"videogame = {data['data']['videoGames']}")
+        except TypeError:
+            responsename.config(text = "Invalid response please try another number")
 
 window = Tk()
 window.geometry("400x250") # set the size (width x height)
