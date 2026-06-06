@@ -32,6 +32,7 @@ def getChara():
         print(data)
         try:
             responsename.config(text = f"name = {data['data']['name']}")
+            films.config(text = f"films = {data['data']['films']}")
             shortfilms.config(text = f"shortfilms = {data['data']['shortFilms']}")
             tvshows.config(text = f"tvshows = {data['data']['tvShows']}")
             allies.config(text = f"allies = {data['data']['allies']}")
@@ -41,7 +42,7 @@ def getChara():
             responsename.config(text = "Invalid response please try another number")
 
 window = Tk()
-window.geometry("400x250") # set the size (width x height)
+window.geometry("700x300") # set the size (width x height)
 
 Title = Label(master = window, text = "yahoo game")
 Title.pack()
@@ -59,6 +60,8 @@ Buttonn.pack()
 
 responsename = Label(window, text = "")
 responsename.pack()
+films = Label(window, text = "")
+films.pack()
 shortfilms = Label(window, text = "")
 shortfilms.pack()
 tvshows = Label(window, text = "")
