@@ -31,12 +31,11 @@ def getChara():
         data = response.json()
         print(data)
         responsename.config(text = f"name = {data['data']['name']}")
-        """
-        shortfilms.config(text = f"shortfilms = {data['shortfilms']}")
-        tvshows.config(text = f"tvshows = {data['tvshows']}")
-        allies.config(text = f"allies = {data['allies']}")
-        enemies.config(text = f"enemies = {data['enemies']}")
-        videogames.config(text = f"videogame = {data['videogame']}") """
+        shortfilms.config(text = f"shortfilms = {data['data']['shortfilms']}")
+        tvshows.config(text = f"tvshows = {data['data']['tvshows']}")
+        allies.config(text = f"allies = {data['data']['allies']}")
+        enemies.config(text = f"enemies = {data['data']['enemies']}")
+        videogames.config(text = f"videogame = {data['data']['videogame']}")
 
 window = Tk()
 window.geometry("400x250") # set the size (width x height)
