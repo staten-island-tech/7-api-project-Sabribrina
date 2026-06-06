@@ -17,19 +17,26 @@ import json
 from tkinter import *
 
 def getChara():
-    ID = Enter.get()
-    response = requests.get(f"https://api.disneyapi.dev/character/{ID.lower()}")
+    try:
+        ID = int(Enter.get())
+    except ValueError:
+        print("Put numbers in the text box")
+        return "Type a number in the text box "
+    
+    response = requests.get(f"https://api.disneyapi.dev/character/{ID}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
     else: 
         data = response.json()
-        responsename.config(text = f"name = {data["name"]}")
-        responsename.config(text = f"shortfilms = {data["shortfilms"]}")
-        responsename.config(text = f"tvshows = {data["tvshows"]}")
-        responsename.config(text = f"allies = {data["allies"]}")
-        responsename.config(text = f"enemies = {data["enemies"]}")
-        responsename.config(text = f"videogame = {data["videogame"]}")
+        print(data)
+        responsename.config(text = f"name = {data['data']['name']}")
+        """
+        shortfilms.config(text = f"shortfilms = {data['shortfilms']}")
+        tvshows.config(text = f"tvshows = {data['tvshows']}")
+        allies.config(text = f"allies = {data['allies']}")
+        enemies.config(text = f"enemies = {data['enemies']}")
+        videogames.config(text = f"videogame = {data['videogame']}") """
 
 window = Tk()
 window.geometry("400x250") # set the size (width x height)
@@ -39,7 +46,7 @@ Title.pack()
 Enter = Entry(master=window)
 Enter.pack()
 
-Instruct = Label(master = window, text = "What id u looking for?")
+Instruct = Label(master = window, text = "What id u looking for? type a number")
 Instruct.pack()
 
 Ask = Label(master = window, text = "ask")
